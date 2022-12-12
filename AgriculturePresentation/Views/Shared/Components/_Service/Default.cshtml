@@ -1,0 +1,23 @@
+﻿@using EntityLayer.Concrete
+@model List<Service>
+<div class="sevices-w3layouts" id="services">
+	<div class="container">
+		<h3 class="tittle">Hizmetlerimiz</h3>
+		<p class="heading-btm-w3ls">4 Farklı hizmet türü ile sizlere ulaşmaya devam ediyoruz.</p>
+		<div class="services-main">
+			@foreach (var hizmet in Model)
+			{
+				<div class="@hizmet.FirstClass" data-wow-delay=".5s">
+					<h5>@hizmet.Title</h5>
+					<p>@hizmet.Description</p>
+
+					<div class="@hizmet.SecondClass">
+						<i class="@hizmet.Image" aria-hidden="true"></i>
+						<p>@hizmet.Title</p>
+					</div>
+				</div>
+			}
+		</div>
+		<div class="clearfix"> </div>
+	</div>
+</div>

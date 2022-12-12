@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<Image>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title text-center">Görsel Listesi</h4>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Başlık</th>
+							<th>Açıklama</th>
+							<th>İşlemler</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var image in Model)
+						{
+							<tr>
+								<td class="py-1">
+									<img src="@image.ImageUrl" alt="image">
+								</td>
+								<td>@image.Title</td>
+								<td>@image.Description</td>
+								<td>
+									<a href="/Image/Delete/@image.ImageID" class="btn btn-danger">Sil</a>
+									<a href="/Image/Edit/@image.ImageID" class="btn btn-warning">Güncelle</a>
+								</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				<a href="/Image/Add/" class="btn btn-success mt-1">Yeni Görsel Ekle</a>
+			</div>
+		</div>
+	</div>
+</div>
+
