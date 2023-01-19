@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Contact>
+<div class="row">
+	<div class="col-md-12 stretch-card">
+		<div class="card">
+			<div class="card-body">
+				<p class="card-title">Son Mesajlar</p>
+				<div class="table-responsive">
+					<table id="recent-purchases-listing" class="table">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>Ad Soyad</th>
+								<th>Mail</th>
+								<th>Tarih</th>
+								<th>Mesaj</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var contact in Model)
+							{
+								<tr>
+									<td>@contact.ContactID</td>
+									<td>@contact.Name</td>
+									<td>@contact.Mail</td>
+									<td>@contact.Date</td>
+									<td><a class="btn btn-success" href="#">Mesajı Gör</a></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

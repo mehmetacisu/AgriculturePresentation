@@ -1,0 +1,45 @@
+﻿@using EntityLayer.Concrete
+@model List<Admin>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Admin Listesi</h4>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>ID</th>
+							<th>Kullanıcı Adı</th>
+							<th>İşlemler</th>
+						</tr>
+					</thead>
+					<tbody>
+							@foreach (var admin in Model)
+							{
+								<tr>
+									<td class="py-1">
+										<img src="~/adminTemplate/template/images/faces/face1.jpg" alt="image" />
+									</td>
+									<td>@admin.AdminId</td>
+									<td>@admin.UserName</td>
+									<td>
+										<a href="/Admin/Delete/@admin.AdminId" class="btn btn-danger">Sil</a>
+										<a href="/Admin/Edit/@admin.AdminId" class="btn btn-warning">Güncelle</a>
+
+									</td>
+								</tr>
+							}
+					</tbody>
+				</table>
+				<a href="/Admin/Add/" class="btn btn-outline-success mt-2">Admin Ekle</a>
+			</div>
+		</div>
+	</div>
+</div>
+

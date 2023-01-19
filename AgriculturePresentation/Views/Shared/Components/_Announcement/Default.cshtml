@@ -1,0 +1,39 @@
+﻿@using EntityLayer.Concrete
+@model List<Announcement>
+<div class="blog" id="blog">
+	<div class="container">
+		@foreach (var announcement in Model)
+		{
+
+			<h3 class="tittle">Son Haberler</h3>
+			<p class="heading-btm-w3ls">Çiftlik ve tarlalarımızdan son haberler</p>
+			<div class="blog-grid-w3-agileits">
+				<div class=" col-md-7 blog-img1-agileits-w3layouts">
+					<a href="#" data-toggle="modal" data-target="#@announcement.Title"></a>
+				</div>
+				<div class=" col-md-5 blog-info-w3layouts">
+					<h6> <a href="#" data-toggle="modal" data-target="#@announcement.Title">@announcement.Title</a></h6>
+					<div class="inner-info">
+						<a href="#" class="blog-text-w3ls bar">Lorem ipsum.</a><span>@announcement.Date.ToString("dddd/MM/yyyy")</span>
+						<p class="para-w3-agileits">@announcement.Description</p>
+					</div>
+					<a href="#" class="blog-more-agile" data-toggle="modal" data-target="#@announcement.AnnouncementID">Devamını Oku</a>
+
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			<div class="modal fade" id="#@announcement.Title" tabindex="-1" role="dialog">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+							<h4>@announcement.Title</h4>
+							<img src="~/web/images/b3.jpg" alt=" " class="img-responsive">
+							<p>@announcement.Description</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>
